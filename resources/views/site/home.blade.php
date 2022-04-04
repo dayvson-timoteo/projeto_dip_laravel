@@ -7,6 +7,13 @@
   <title>Home</title>
 </head>
 <body>
-  <h1>Home</h1>
+  <h1>Home (view)</h1>
+  <ul>
+    <li><a href="{{route('site.home')}}">Home</a></li>
+    <li><a href="{{route('app.cadastro')}}">Cadastro</a></li>
+    <li><a href="{{route('site.login')}}">Login</a></li>
+    <li><a href="{{route('site.search')}}">Search</a></li>
+    <li><a href="{{route('site.sobrenos')}}">Sobre Nós</a></li>
+  </ul>
 </body>
 </html>
