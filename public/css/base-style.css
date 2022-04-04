@@ -28,6 +28,10 @@ input, select, textarea, button {
   color: #333;
 }
 
+label {
+  float: left;
+}
+
 .texto-branco {
   color: #ffffff;
 }
@@ -154,7 +158,7 @@ button:hover {
 
 .titulo-pagina {
   padding: 100px 0px 60px 0px;
-  background-color: #2a9ee2;
+  background-color: #000000;
   text-align: center;
 }
 
