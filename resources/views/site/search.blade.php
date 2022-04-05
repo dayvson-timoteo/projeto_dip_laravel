@@ -12,7 +12,7 @@
         </form>
       <div class="resultado">
         <table class="table caption-top">
-          <caption>List of users</caption>
+          <caption></caption>
           <thead>
             <tr>
               <th scope="col">Tipo de Publicação</th>
@@ -22,28 +22,23 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($cadastros as $indice=>$cadastro)
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">{{$cadastro['tipo']}}</th>
+              <td>{{$cadastro['numero']}}</td>
+              <td>{{$cadastro['unidade']}}</td>
+              <td>{{$cadastro['data']}}</td>
               <tr>
-                <td colspan="4">Dea,-,pontuouele.</td>
+                @php
+                  $msg = $cadastro['conteudo'];
+                  $msg = explode(' ', $msg);
+                  $msg = array_slice($msg, 0, 101);
+                  $msg = $msg = implode(" ", $msg) ;
+                @endphp
+                <td colspan="4">{{$msg}}</td>
               </tr>
             </tr>
-
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

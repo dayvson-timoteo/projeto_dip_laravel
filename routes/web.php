@@ -15,7 +15,7 @@ Route::get('/login', 'LoginController@login')->name('site.login');
 
 //app
 Route::prefix('/app')->group(function(){
-    Route::get('/cadastro', 'CadastroController@cadastro')->name('app.cadastro');
+    Route::get('/cadastro', 'CadastroController@cadastroGet')->name('app.cadastro');
 });
 
 Route::prefix('/app')->group(function(){
