@@ -28,7 +28,7 @@
               <td>Otto</td>
               <td>@mdo</td>
               <tr>
-                <td colspan="4">DeacordocomoCoronelCamelFaraqueelapossaapresentarvalorpúblicoparaasociedade.OplanejamentoestratégiconaPMPEjáseencontranumestágioadiantado,jáforamrealizadasasprimeirasaçõeseéperceptveloensssssssssssssssssssssssssgajamento,<br>oessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddnvolvimentoededicaçãodospoliciaismilitaresqueseencontramemposiçõesquesãodecisivasparaessaatvidade-,pontuouele.</td>
+                <td colspan="4">Dea,-,pontuouele.</td>
               </tr>
             </tr>
 
