@@ -18,6 +18,10 @@ Route::prefix('/app')->group(function(){
     Route::get('/cadastro', 'CadastroController@cadastro')->name('app.cadastro');
 });
 
+Route::prefix('/app')->group(function(){
+    Route::post('/cadastro', 'CadastroController@cadastro')->name('app.cadastro');
+});
+
 //fallback
 Route::fallback(function() {
     echo 'A rota acessada não existe. <a href="'.route('site.home').'">clique aqui</a> para ir para página inicial';

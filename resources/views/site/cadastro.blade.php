@@ -3,7 +3,8 @@
   @section('conteudo')
   <div class="informacao-pagina">
       <div class="contato-principal">
-        <form method="GET">
+        <form method="POST" action="{{ route('app.cadastro') }}">
+          @csrf
           <label for="inputText" class="form-label" >Tipo de Publicação </label>  
           <input name="tipo" type="text" placeholder="Digite o tipo da publicação" class="borda-preta">
           <br>
