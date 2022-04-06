@@ -7,10 +7,52 @@ use App\AppCadastro;
 
 class SearchController extends Controller
 {
-    public function search(){   
+    public function search(){ 
+        print_r($_POST);  
         $cadastros = AppCadastro::all();     
         return view('site.search', compact('cadastros'));
     }
+
+    public function searchPost(){
+        $cadastros = AppCadastro::where('conteudo', 'LIKE', '%' .$_POST['pesquisa']. '%')->get();
+        return view('site.search', compact('cadastros'));
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // public function txtPreview($doc, $search){
     //     $doc = strtolower($doc);
@@ -26,5 +68,3 @@ class SearchController extends Controller
     //     $doc = implode(" ", $doc);
     //     return view('site.search');
     // }
-
-}

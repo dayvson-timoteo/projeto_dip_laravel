@@ -154,6 +154,7 @@ button:hover {
   height: 100%;
   text-align: center;
   margin-bottom: 100px;
+  overflow-y: scroll;
 }
 
 .titulo-pagina {
@@ -191,3 +192,4 @@ button:hover {
 .redes-sociais img {
   margin: 0px 15px 0px 15px;
 }
+

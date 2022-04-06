@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@home')->name('site.home');
 
 Route::get('/search', 'SearchController@search')->name('site.search');
-Route::post('/search', 'SearchController@search')->name('site.search');
+Route::post('/search', 'SearchController@searchPost')->name('site.search');
 
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 

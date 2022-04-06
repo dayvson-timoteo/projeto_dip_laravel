@@ -11,7 +11,7 @@
           <button type="submit" class="borda-preta" >pesquisar</button>
         </form>
       <div class="resultado">
-        <table class="table caption-top">
+        <table class="table caption-top table-striped">
           <caption></caption>
           <thead>
             <tr>
@@ -19,15 +19,18 @@
               <th scope="col">Nº</th>
               <th scope="col">Unidade</th>
               <th scope="col">Data da Publicação</th>
+              <th scope="col">Arquivo</th>
             </tr>
           </thead>
           <tbody>
+            @if (empty($_POST))            
             @foreach ($cadastros as $indice=>$cadastro)
             <tr>
               <th scope="row">{{$cadastro['tipo']}}</th>
               <td>{{$cadastro['numero']}}</td>
               <td>{{$cadastro['unidade']}}</td>
               <td>{{$cadastro['data']}}</td>
+              <td><a href="{{$cadastro['linkPdf']}}"><img class="logo-pdf" src="{{ asset('img/pdf-p.png') }}" alt=""></a></td>
               <tr>
                 @php
                   $msg = $cadastro['conteudo'];
@@ -35,10 +38,45 @@
                   $msg = array_slice($msg, 0, 101);
                   $msg = $msg = implode(" ", $msg) ;
                 @endphp
-                <td colspan="4">{{$msg}}</td>
+                <td colspan="5">{{$msg}}</td>
               </tr>
             </tr>
             @endforeach
+            @endif
+
+
+            @if (!empty($_POST))        
+            @foreach ($cadastros as $indice=>$cadastro)
+            <tr>
+              <th scope="row">{{$cadastro['tipo']}}</th>
+              <td>{{$cadastro['numero']}}</td>
+              <td>{{$cadastro['unidade']}}</td>
+              <td>{{$cadastro['data']}}</td>
+              <td><a href="{{$cadastro['linkPdf']}}"><img class="logo-pdf" src="{{ asset('img/pdf-p.png') }}" alt=""></a></td>
+              <tr>
+                @php
+                  $search = strtolower($_POST['pesquisa']);
+                  $doc = $cadastro['conteudo'];
+                  $doc = strtolower($doc);
+                  $doc = explode(" ",$doc);
+                  
+                  $wordIndice = array_search($search, $doc);
+                  
+                  if ($wordIndice >=50) {
+                      $doc = array_slice($doc, $wordIndice, 70);
+                  }
+                  else{
+                      $doc = array_slice($doc, $wordIndice, 70);
+                  }
+                  // $doc = array_slice($doc, $wordIndice, 150);
+                  
+                  $doc = implode(" ", $doc);                
+                @endphp
+                <td colspan="5" class="mensagem">@php echo $doc @endphp</td>
+              </tr>
+            </tr>
+            @endforeach
+            @endif
           </tbody>
         </table>
       </div>
