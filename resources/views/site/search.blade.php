@@ -55,22 +55,25 @@
               <td><a href="{{$cadastro['linkPdf']}}"><img class="logo-pdf" src="{{ asset('img/pdf-p.png') }}" alt=""></a></td>
               <tr>
                 @php
-                  $search = strtolower($_POST['pesquisa']);
+                  $search = mb_strtolower($_POST['pesquisa']);
                   $doc = $cadastro['conteudo'];
-                  $doc = strtolower($doc);
+                  // $doc = mb_strtolower($doc);
+                  // $wordIndice = array_search($search, $doc);
+                  
+                  // if ($wordIndice >=50) {
+                    //   $doc = array_slice($doc, $wordIndice, 70);
+                    // }
+                    // else{
+                      //   $doc = array_slice($doc, $wordIndice, 70);
+                      // }
+                      // $doc = implode(" ", $doc); 
+                      
+                  $doc = mb_strtolower($doc);
+                  $indice = strpos($doc, $search);
+                  $doc = substr($doc, $indice, $indice + 2);
                   $doc = explode(" ",$doc);
-                  
-                  $wordIndice = array_search($search, $doc);
-                  
-                  if ($wordIndice >=50) {
-                      $doc = array_slice($doc, $wordIndice, 70);
-                  }
-                  else{
-                      $doc = array_slice($doc, $wordIndice, 70);
-                  }
-                  // $doc = array_slice($doc, $wordIndice, 150);
-                  
-                  $doc = implode(" ", $doc);                
+                  $doc = array_slice($doc, 0, 70);
+                  $doc = implode(" ", $doc); 
                 @endphp
                 <td colspan="5" class="mensagem">@php echo $doc @endphp</td>
               </tr>
