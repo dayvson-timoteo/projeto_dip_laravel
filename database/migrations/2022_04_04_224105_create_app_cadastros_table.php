@@ -16,9 +16,9 @@ class CreateAppCadastrosTable extends Migration
         Schema::create('app_cadastros', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('tipo',100);
+            $table->string('tipo',150);
             $table->integer('numero');
-            $table->string('unidade',100);
+            $table->string('unidade',150);
             $table->date('data');
             $table->string('linkPdf',150);
             $table->longText('conteudo');
