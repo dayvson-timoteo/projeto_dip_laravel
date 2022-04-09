@@ -7,8 +7,7 @@ use App\AppCadastro;
 
 class SearchController extends Controller
 {
-    public function search(){ 
-        print_r($_POST);  
+    public function search(){  
         $cadastros = AppCadastro::all();     
         return view('site.search', compact('cadastros'));
     }
